@@ -19,11 +19,11 @@
     [super viewDidLoad];
     
     
-    NSMutableArray *viewControllersCopy = [[self.tabBarController viewControllers] mutableCopy];
-    [viewControllersCopy removeObjectAtIndex:2];
-    NSArray *modifiedViewControllers = [[NSArray alloc] initWithArray:viewControllersCopy];
-    [self.tabBarController setViewControllers:modifiedViewControllers animated:NO];
-    
+    NSMutableArray *viewControllersCopy1 = [[self.tabBarController viewControllers] mutableCopy];
+    [viewControllersCopy1 removeObjectAtIndex:2];
+    NSArray *modifiedViewControllers1 = [[NSArray alloc] initWithArray:viewControllersCopy1];
+    [self.tabBarController setViewControllers:modifiedViewControllers1 animated:NO];
+
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -37,14 +37,14 @@
 
 -(IBAction)ClickedBtn
 {
-
-     NSLog(@" %lu",(unsigned long)[[self.tabBarController tabBar]items].count);
-
-        ViewController *vc = [[ViewController alloc] init];
-        NSMutableArray *viewControllersCopy = [[self.tabBarController viewControllers] mutableCopy];
-        [viewControllersCopy replaceObjectAtIndex:0 withObject:vc];
-        NSArray *modifiedViewControllers = [[NSArray alloc] initWithArray:viewControllersCopy];
-        [self.tabBarController setViewControllers:modifiedViewControllers animated:NO];
+    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main_iPhone"
+                                                  bundle:nil];
+    UIViewController* vc1 = [sb instantiateViewControllerWithIdentifier:@"ViewController"];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc1];
+    NSMutableArray *viewControllersCopy = [[self.tabBarController viewControllers] mutableCopy];
+    [viewControllersCopy replaceObjectAtIndex:0 withObject:nav];
+    NSArray *modifiedViewControllers = [[NSArray alloc] initWithArray:viewControllersCopy];
+    [self.tabBarController setViewControllers:modifiedViewControllers animated:NO];
 
 }
 

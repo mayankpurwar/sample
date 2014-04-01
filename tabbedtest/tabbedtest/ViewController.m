@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self.tabBarItem setImage:[UIImage imageNamed:@"House.png"]];
     }
     return self;
 }
@@ -26,6 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tabBarItem setImage:[UIImage imageNamed:@"House.png"]];
+    
+    self.title = @"Third";
+    
+    
     // Do any additional setup after loading the view.
 }
 
